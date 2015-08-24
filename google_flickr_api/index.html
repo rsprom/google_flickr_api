@@ -1,0 +1,36 @@
+﻿<!DOCTYPE html>
+<html ng-app="flickrMapApp">
+<head>
+    <title>Ritchie Prom's Flickr Map</title>
+	<meta charset="utf-8" />
+
+    <!-- Google Maps -->
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC3MbK7QC_uoj8blbDEhj5nwHwgigM85Cw"></script>
+
+    <!-- Bootstrap -->
+    <script type="text/javascript" src="Scripts/jquery-1.9.1.js"></script>
+    <script  ype="text/javascript" src="Scripts/bootstrap.js"></script>
+
+    <!-- AngularJS -->
+    <script type="text/javascript" src="Scripts/angular.js"></script>
+    <script type="text/javascript" src="Scripts/angular-route.js"></script>
+    <script type="text/javascript" src="app/app.module.js"></script>
+
+    <!-- AngularJS Config -->
+    <script type="text/javascript" src="app/app.config.js"></script>
+
+    <!-- AngularJS Services -->
+    <script type="text/javascript" src="app/services/flickrAPI.service.js"></script>
+    <script type="text/javascript" src="app/services/googleMapsAPI.service.js"></script>
+
+    <!-- AngularJS Controllers-->
+    <script src="app/map/map.controller.js"></script>
+
+
+    <link href="Content/bootstrap.css" rel="stylesheet" />
+    <link href="Content/style.css" rel="stylesheet" />
+</head>
+<body>
+    <ng-view></ng-view>
+</body>
+</html>
