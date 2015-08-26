@@ -10,31 +10,38 @@
     function flickrAPI($http) {
         var flickrAPIKey = "0f40131d0253a205094f298e92f96ad3";
         var defaultSearch = "landscape";
-        var perPage = 10;
-        var url_size = "url_l";
+        var perPage = 20;
+        var url_size = "url_m";
 
         return {
-            getFlickrImg: getFlickrImg
+            getFlickrImgs: getFlickrImgs
         };
 
-        function getFlickrImg(newSearch) {
+        function getFlickrImgs(newSearch, page) {
+            if (newSearch != null) {
+                defaultSearch = newSearch;
+            }
+
             return $http({
                 method: 'GET',
                 params: {
                     api_key: flickrAPIKey,
-                    text: newSearch,
+                    text: defaultSearch,
                     safe_search: 1,
                     sort: "relevance",
-                    extras: url_size + ",description",
+                    extras: url_size + ",description" + ",geo",
                     format: "json",
+                    has_geo: 1,
+                    per_page: perPage,
+                    page: page,
                     nojsoncallback: "?"
                 },
                 url: 'https://api.flickr.com/services/rest/?method=flickr.photos.search'
             })
-              .then(getFlickrImgComplete)
-              .catch(getFlickrImgFailed);
+              .then(getFlickrImgsComplete)
+              .catch(getFlickrImgsFailed);
 
-            function getFlickrImgComplete(response) {
+            function getFlickrImgsComplete(response) {
                 angular.forEach(response.data.photos.photo, function (value, key) {
                     value.url = value[url_size];
                 });
@@ -42,7 +49,7 @@
                 return response.data;
             }
 
-            function getFlickrImgFailed(error) {
+            function getFlickrImgsFailed(error) {
                 console.log(error);
             }
         }
