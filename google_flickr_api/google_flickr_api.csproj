@@ -68,6 +68,7 @@
   <ItemGroup>
     <Content Include="app\start\start.controller.js" />
     <Content Include="app\start\start.html" />
+    <Content Include="images\favicon.ico" />
     <Content Include="Content\font-awesome.css" />
     <Content Include="Content\font-awesome.min.css" />
     <Content Include="fonts\fontawesome-webfont.svg" />
@@ -89,7 +90,6 @@
     <Content Include="app\map\map.controller.js" />
     <Content Include="app\map\map.html" />
     <Content Include="app\services\flickrAPI.service.js" />
-    <Content Include="app\services\googleMapsAPI.service.js" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
