@@ -1,15 +1,33 @@
-﻿<div id="map" class="col-md-9">
-</div>
-<div id="photos-window" class="col-md-3">
-    <h1>Google Maps + Flickr</h1>
-    <form id="search" ng-submit="vm.getData()">
-        <input type="text" ng-model="vm.textSearch" />
-        <i class="fa fa-search" ng-click="vm.getData()"></i>
-    </form>
-    <div id="photos" class="row">
-        <div ng-repeat="photo in vm.currentPhotoList" class="photo" style="background: url({{ photo.url }}); background-size: cover; background-position: center;">
-            <div class="photo-overlay"  ng-click="vm.zoom(photo)">
-            </div>
+﻿<header id="header" class="col-md-12">
+    <div class="title">
+        <h1>Google Maps + Flickr</h1>
+        <p>An app by Ritchie Prom</p>
+    </div>
+    <div>
+        <form class="search" ng-submit="vm.getData()">
+            <input type="text" ng-model="vm.textSearch" required />
+            <i class="fa fa-search" ng-click="vm.getData()"></i>
+        </form>
+        <div id="load-more-mobile" ng-click="vm.getNext()">
+            <h5>LOAD NEXT</h5>
         </div>
     </div>
-</div>
+</header>
+<section id="map-content">
+    <div id="map" class="col-md-9">
+    </div>
+    <div id="photos-window" class="col-md-3">
+        <div class="no-results" ng-show="vm.currentPhotoList.length == 0">
+            <p>Unfortunately no photos could be found. Please try another search!</p>
+        </div>
+        <div id="photos" class="row" ng-show="vm.currentPhotoList.length > 0">
+            <div ng-repeat="photo in vm.currentPhotoList" class="photo" style="background: url({{ photo.url }}); background-size: cover; background-position: center;">
+                <div id="{{ photo.id }}" class="photo-overlay" ng-class="{'active-photo': vm.isActive(photo.id)}" ng-click="vm.zoom(photo)">
+                </div>
+            </div>
+        </div>
+        <div id="load-more" ng-click="vm.getNext()">
+            <h5>LOAD NEXT</h5>
+        </div>
+    </div>
+</section>

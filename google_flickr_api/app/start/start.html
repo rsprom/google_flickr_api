@@ -1,0 +1,15 @@
+﻿<div id="start-page">
+    <div id="start-search">
+        <h1>Google + Flickr</h1>
+        <p>
+            In combination with Google Maps and Flickr, this app allows you to search through photos on Flickr that have geotags.<br />
+            The photos are then marked on Google Maps and allows you to see where in the world a photo was taken.
+            <br /><br />
+            To begin, type a subject in the search bar below. Some of the best results that utilize the map include 'landscape', 'cityscape' and 'landmarks'.
+        </p>
+        <form class="search" ng-submit="vm.search()">
+            <input type="text" ng-model="vm.initialText" required/>
+            <i class="fa fa-search" ng-click="vm.search()"></i>
+        </form>
+    </div>
+</div>
